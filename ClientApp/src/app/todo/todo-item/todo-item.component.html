@@ -1,0 +1,6 @@
+<div class="todo">
+    <label>
+        <input type="checkbox" [(ngModel)]="todo.complete" (ngModelChange)="updateTodo()" [disabled]="saving" />
+        {{todo.title}}
+    </label>
+</div>

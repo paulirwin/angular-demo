@@ -1,0 +1,12 @@
+<h1>To-Do List</h1>
+
+<form class="form-inline" #form="ngForm" (ngSubmit)="createTodo()">
+    <label>Create new todo:</label>
+    <input type="text" name="title" class="form-control" placeholder="i.e. Wash the dishes" [(ngModel)]="newTitle" required [disabled]="saving" />
+    <button type="submit" class="btn btn-primary" [disabled]="saving || !form.valid">Create</button>
+</form>
+
+<div class="card todo-list">
+    <p *ngIf="!todos.length">There are no todos</p>
+    <app-todo-item [todo]="todo" (update)="updateTodo($event)" [saving]="saving" *ngFor="let todo of todos"></app-todo-item>
+</div>
